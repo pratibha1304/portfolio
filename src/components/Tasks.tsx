@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Database, Terminal, GitBranch, Server, CheckCircle, Clock, Star, Filter } from 'lucide-react';
+import SectionBackground from './SectionBackground';
 
 const Tasks: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -339,11 +340,8 @@ const Tasks: React.FC = () => {
 
   return (
     <section id="tasks" className="py-20 section-bg-primary relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-theme-accent rounded-full mix-blend-multiply filter blur-xl opacity-5 animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-5 animate-pulse delay-1000"></div>
-      </div>
+      {/* Enhanced Section Background */}
+      <SectionBackground section="tasks" intensity="medium" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -449,8 +447,29 @@ const Tasks: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="card p-6 group"
+              whileHover={{ 
+                y: -5,
+                scale: 1.02,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+              className="card p-6 group task-box relative overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 0.7) 100%)',
+                backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(203, 216, 59, 0.08)',
+                boxShadow: '0 6px 24px rgba(0, 0, 0, 0.2)',
+              }}
             >
+              {/* Hover effect overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-theme-accent/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Subtle glow effect on hover */}
+              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                   style={{
+                     background: 'radial-gradient(circle at 50% 50%, rgba(203, 216, 59, 0.05) 0%, transparent 70%)',
+                     filter: 'blur(15px)'
+                   }}>
+              </div>
               {/* Task Header */}
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">

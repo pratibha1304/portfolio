@@ -6,6 +6,8 @@ import Projects from './components/Projects';
 import Tasks from './components/Tasks';
 import Contact from './components/Contact';
 import ThemeToggle from './components/ThemeToggle';
+import BackgroundVideo from './components/BackgroundVideo';
+import AnimatedBackground from './components/AnimatedBackground';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { useScrollTracking } from './hooks/useScrollTracking';
 
@@ -15,6 +17,12 @@ function App() {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-theme-bg text-theme-text transition-colors duration-300 relative">
+        
+        {/* Animated Background */}
+        <BackgroundVideo type="organic-waves" />
+        
+        {/* Enhanced Animated Background */}
+        <AnimatedBackground intensity="medium" type="all" />
         
         {/* Theme Toggle */}
         <ThemeToggle />

@@ -1,22 +1,50 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, Star, Calendar, Code, Database, Globe, Zap, Folder, Filter, Shield, Lock, Users, ChevronDown, ChevronUp } from 'lucide-react';
+import SectionBackground from './SectionBackground';
 
 const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('featured');
   const [showAllProjects, setShowAllProjects] = useState(false);
 
   const projectCategories = [
-    { id: 'featured', name: 'Featured Projects', icon: Star, count: 4 },
+    { id: 'featured', name: 'Featured Projects', icon: Star, count: 5 },
     { id: 'web', name: 'Web Development', icon: Globe, count: 2 },
     { id: 'security', name: 'Security & AI', icon: Shield, count: 2 },
-    { id: 'devops', name: 'DevOps', icon: Database, count: 1 },
+    { id: 'devops', name: 'DevOps', icon: Database, count: 2 },
     { id: 'tools', name: 'Tools & Utilities', icon: Code, count: 2 }
   ];
 
   const featuredProjects = [
     {
       id: 1,
+      title: "Dockerized Microservices Architecture",
+      description: "Built and containerized two Flask-based microservices with PostgreSQL and Redis caching.",
+      longDescription: "A comprehensive microservices project built during summer internship under Vimal Daga Sir's guidance. Successfully implemented Docker containerization, PostgreSQL database integration, Redis caching, and orchestrated services with Docker Compose for scalable architecture.",
+      technologies: ["Flask", "Docker", "Docker Compose", "PostgreSQL", "Redis", "Python", "Microservices", "DevOps"],
+      github: "https://lnkd.in/ggwvTBMb",
+      demo: "#",
+      status: "Completed",
+      type: "Microservices Project",
+      category: "devops",
+      featured: true,
+      timeline: "Summer 2024",
+      role: "DevOps Intern",
+      image: "/api/placeholder/400/250",
+      stats: {
+        stars: 15,
+        forks: 5,
+        commits: 85
+      },
+      highlights: [
+        "Dockerized User-Service and Data-Service",
+        "PostgreSQL database integration",
+        "Redis caching for performance optimization",
+        "Docker Compose orchestration"
+      ]
+    },
+    {
+      id: 2,
       title: "PeerUp - Peer Mentorship Platform",
       description: "Full-stack responsive web & mobile application enabling peer mentorship and buddy matches with dynamic features and real-time communication.",
       longDescription: "A comprehensive peer mentorship platform built with modern technologies. Features include dynamic filters, role-based logic, feedback systems, real-time chat, and seamless profile switching for enhanced user experience.",
@@ -43,7 +71,7 @@ const Projects: React.FC = () => {
       ]
     },
     {
-      id: 2,
+      id: 3,
       title: "SheShield - Women's Safety App",
       description: "AI-powered women's safety application with real-time SOS alerts, image capture, geofencing, and local volunteer support system.",
       longDescription: "An innovative safety application designed for women's security. Features real-time SOS alerts with automatic image capture within 2.5 seconds, 500m geofencing capabilities, and local volunteer network integration that reduces emergency response time by 30%.",
@@ -70,7 +98,7 @@ const Projects: React.FC = () => {
       ]
     },
     {
-      id: 3,
+      id: 4,
       title: "RSA Cryptanalysis Research",
       description: "Research-based cryptographic project implementing 5 RSA attack methods with advanced mathematical algorithms for security analysis.",
       longDescription: "A comprehensive research project focused on RSA cryptographic analysis. Successfully implemented 5 different RSA attack methods, including Coppersmith's attack capable of cracking 1024-bit keys in 75 seconds. Applied Chinese Remainder Theorem to reduce decryption complexity by 30%.",
@@ -97,7 +125,7 @@ const Projects: React.FC = () => {
       ]
     },
     {
-      id: 4,
+      id: 5,
       title: "DevOps Flask Application",
       description: "Complete DevOps pipeline with Flask application, Docker containerization, and Jenkins CI/CD automation for seamless deployment.",
       longDescription: "A comprehensive DevOps project demonstrating modern deployment practices. Features a Flask web application with complete Docker containerization and Jenkins CI/CD pipeline that automatically builds and deploys whenever changes are pushed to GitHub.",
@@ -127,24 +155,54 @@ const Projects: React.FC = () => {
 
   const smallerProjects = [
     {
-      id: 5,
+      id: 6,
       title: "Gradio Interactive Menu",
       description: "Interactive menu application built with Gradio for machine learning interfaces with dynamic UI components.",
       technologies: ["Python", "Gradio", "ML Interface"],
       github: "https://github.com/pratibha1304/Tasks/blob/main/TaskList/projects/gradioMenu.py",
+      demo: "#",
       status: "Completed",
       type: "Tool",
-      category: "tools"
+      category: "tools",
+      featured: false,
+      timeline: "Recent",
+      role: "Developer",
+      image: "/api/placeholder/400/250",
+      stats: {
+        stars: 8,
+        forks: 3,
+        commits: 15
+      },
+      highlights: [
+        "Interactive ML interface",
+        "Dynamic UI components",
+        "Gradio framework integration"
+      ]
     },
     {
-      id: 6,
+      id: 7,
       title: "Streamlit Dashboard",
       description: "Interactive dashboard and menu system using Streamlit framework with data visualization capabilities.",
       technologies: ["Python", "Streamlit", "Data Visualization"],
       github: "https://github.com/pratibha1304/Tasks/blob/main/TaskList/projects/streamlitMenu.py",
+      demo: "#",
       status: "Completed",
       type: "Dashboard",
-      category: "tools"
+      category: "tools",
+      featured: false,
+      timeline: "Recent",
+      role: "Developer",
+      image: "/api/placeholder/400/250",
+      stats: {
+        stars: 12,
+        forks: 4,
+        commits: 28
+      },
+      highlights: [
+        "Interactive dashboard",
+        "Data visualization",
+        "Streamlit framework"
+      ]
     }
   ];
 
@@ -158,6 +216,7 @@ const Projects: React.FC = () => {
 
   const getTypeColor = (type: string) => {
     switch (type) {
+      case 'Microservices Project': return 'bg-purple-500/20 text-purple-300 border-purple-500/30';
       case 'Full-Stack Application': return 'bg-theme-accent/20 text-theme-accent-secondary border-theme-accent/30';
       case 'Safety Application': return 'bg-green-500/20 text-green-300 border-green-500/30';
       case 'Research Project': return 'bg-theme-accent/20 text-theme-accent border-theme-accent/30';
@@ -170,11 +229,8 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="py-20 section-bg-secondary relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-theme-accent rounded-full mix-blend-multiply filter blur-xl opacity-5 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-5 animate-pulse delay-1000"></div>
-      </div>
+      {/* Enhanced Section Background */}
+      <SectionBackground section="projects" intensity="medium" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -237,8 +293,29 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="card p-8 group"
+              whileHover={{ 
+                y: -8,
+                scale: 1.02,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+              className="card p-8 group project-box relative overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(26, 26, 26, 0.8) 100%)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(203, 216, 59, 0.1)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+              }}
             >
+              {/* Hover effect overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-theme-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Glow effect on hover */}
+              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                   style={{
+                     background: 'radial-gradient(circle at 50% 50%, rgba(203, 216, 59, 0.1) 0%, transparent 70%)',
+                     filter: 'blur(20px)'
+                   }}>
+              </div>
               {/* Project Header */}
               <div className="flex items-start justify-between mb-6">
                 <div className="flex-1">
@@ -432,10 +509,10 @@ const Projects: React.FC = () => {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
         >
           {[
-            { label: 'Total Projects', value: '6', icon: Folder, color: 'text-theme-accent' },
-            { label: 'Technologies Used', value: '20+', icon: Code, color: 'text-cyan-400' },
-            { label: 'GitHub Stars', value: '80+', icon: Star, color: 'text-yellow-400' },
-            { label: 'Total Commits', value: '300+', icon: Calendar, color: 'text-green-400' }
+            { label: 'Total Projects', value: '7', icon: Folder, color: 'text-theme-accent' },
+            { label: 'Technologies Used', value: '25+', icon: Code, color: 'text-cyan-400' },
+            { label: 'GitHub Stars', value: '95+', icon: Star, color: 'text-yellow-400' },
+            { label: 'Total Commits', value: '385+', icon: Calendar, color: 'text-green-400' }
           ].map((stat, index) => (
             <motion.div
               key={index}
