@@ -32,55 +32,55 @@ const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
 
   const getOrganicWaves = () => (
     <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-      {/* Organic wave patterns similar to bgvideo1.mp4 */}
+      {/* Gentle organic wave patterns - very calm and pleasant */}
       <div className="absolute inset-0">
-        {/* Primary wave clusters */}
-        {Array.from({ length: 8 }, (_, i) => (
+        {/* Gentle wave clusters - much fewer and slower */}
+        {Array.from({ length: 3 }, (_, i) => (
           <div
             key={`wave-cluster-${i}`}
-            className="absolute rounded-full mix-blend-multiply filter blur-lg opacity-30"
+            className="absolute rounded-full mix-blend-multiply filter blur-xl opacity-15"
             style={{
-              width: `${150 + Math.random() * 200}px`,
-              height: `${150 + Math.random() * 200}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              width: `${200 + Math.random() * 150}px`,
+              height: `${200 + Math.random() * 150}px`,
+              left: `${20 + i * 25}%`,
+              top: `${30 + i * 20}%`,
               backgroundColor: '#ffffff',
-              animation: `organic-wave ${6 + Math.random() * 4}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 6}s`
-            }}
-          />
-        ))}
-        
-        {/* Secondary wave elements */}
-        {Array.from({ length: 15 }, (_, i) => (
-          <div
-            key={`wave-element-${i}`}
-            className="absolute rounded-full mix-blend-multiply filter blur-md opacity-20"
-            style={{
-              width: `${50 + Math.random() * 100}px`,
-              height: `${50 + Math.random() * 100}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              backgroundColor: '#ffffff',
-              animation: `organic-wave-secondary ${8 + Math.random() * 4}s ease-in-out infinite`,
+              animation: `gentle-organic-wave ${12 + Math.random() * 6}s ease-in-out infinite`,
               animationDelay: `${Math.random() * 8}s`
             }}
           />
         ))}
         
-        {/* Floating dots */}
-        {Array.from({ length: 40 }, (_, i) => (
+        {/* Very subtle secondary elements */}
+        {Array.from({ length: 6 }, (_, i) => (
           <div
-            key={`floating-dot-${i}`}
-            className="absolute rounded-full opacity-40"
+            key={`wave-element-${i}`}
+            className="absolute rounded-full mix-blend-multiply filter blur-lg opacity-10"
             style={{
-              width: `${2 + Math.random() * 3}px`,
-              height: `${2 + Math.random() * 3}px`,
+              width: `${80 + Math.random() * 60}px`,
+              height: `${80 + Math.random() * 60}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               backgroundColor: '#ffffff',
-              animation: `floating-dots ${10 + Math.random() * 5}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 10}s`
+              animation: `gentle-organic-wave-secondary ${15 + Math.random() * 5}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 12}s`
+            }}
+          />
+        ))}
+        
+        {/* Gentle floating dots - much fewer and slower */}
+        {Array.from({ length: 12 }, (_, i) => (
+          <div
+            key={`floating-dot-${i}`}
+            className="absolute rounded-full opacity-25"
+            style={{
+              width: `${1 + Math.random() * 2}px`,
+              height: `${1 + Math.random() * 2}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              backgroundColor: '#ffffff',
+              animation: `gentle-floating-dots ${20 + Math.random() * 10}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 15}s`
             }}
           />
         ))}

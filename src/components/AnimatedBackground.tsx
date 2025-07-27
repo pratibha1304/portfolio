@@ -25,17 +25,17 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
 
   const getParticleCount = () => {
     switch (intensity) {
-      case 'low': return 20;
-      case 'high': return 60;
-      default: return 40;
+      case 'low': return 8;
+      case 'high': return 20;
+      default: return 12;
     }
   };
 
   const getWaveCount = () => {
     switch (intensity) {
-      case 'low': return 3;
-      case 'high': return 8;
-      default: return 5;
+      case 'low': return 2;
+      case 'high': return 4;
+      default: return 3;
     }
   };
 
@@ -54,9 +54,9 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 backgroundColor: ['#CBD83B', '#ffffff', '#00ffff', '#ff00ff'][Math.floor(Math.random() * 4)],
-                animation: `floating-particles ${6 + Math.random() * 6}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 8}s`,
-                transform: `translate(${mousePosition.x * 0.1}px, ${mousePosition.y * 0.1}px)`
+                animation: `gentle-floating-particles ${12 + Math.random() * 8}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 15}s`,
+                transform: `translate(${mousePosition.x * 0.05}px, ${mousePosition.y * 0.05}px)`
               }}
             />
           ))}
@@ -76,8 +76,8 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 backgroundColor: ['#CBD83B', '#00ffff', '#ff00ff', '#00ff00'][Math.floor(Math.random() * 4)],
-                animation: `circuit-pulse ${3 + Math.random() * 4}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 5}s`
+                animation: `gentle-circuit-pulse ${8 + Math.random() * 6}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 10}s`
               }}
             />
           ))}

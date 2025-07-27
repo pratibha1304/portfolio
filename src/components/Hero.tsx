@@ -190,7 +190,7 @@ const Hero: React.FC = () => {
                     boxShadow: "0 0 30px rgba(203, 216, 59, 0.6), inset 0 0 20px rgba(203, 216, 59, 0.1)"
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="relative px-8 py-4 bg-gradient-to-r from-theme-accent to-theme-accent-secondary text-black font-semibold rounded-xl overflow-hidden group"
+                  className="relative px-8 py-4 bg-gradient-to-r from-theme-accent to-theme-accent-secondary text-white font-semibold rounded-xl overflow-hidden group"
                   onClick={() => scrollToSection('about')}
                 >
                   <span className="relative z-10">Explore My Universe</span>

@@ -117,6 +117,36 @@ body {
   66% { transform: translateY(10px) rotate(240deg); }
 }
 
+@keyframes gentle-floating-particles {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+  25% { 
+    transform: translateY(-6px) translateX(3px);
+    opacity: 0.5;
+  }
+  50% { 
+    transform: translateY(-10px) translateX(-4px);
+    opacity: 0.4;
+  }
+  75% { 
+    transform: translateY(-4px) translateX(6px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes gentle-circuit-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% { 
+    transform: scale(1.05);
+    opacity: 0.3;
+  }
+}
+
 @keyframes particle-float {
   0%, 100% { 
     transform: translateY(0px) translateX(0px) scale(1);
@@ -178,7 +208,61 @@ body {
   }
 }
 
-/* Organic wave animations (similar to bgvideo1.mp4) */
+/* Gentle organic wave animations - very calm and pleasant */
+@keyframes gentle-organic-wave {
+  0%, 100% { 
+    transform: scale(1) translate(0, 0);
+    opacity: 0.15;
+  }
+  25% { 
+    transform: scale(1.05) translate(5px, -8px);
+    opacity: 0.25;
+  }
+  50% { 
+    transform: scale(0.95) translate(-3px, 6px);
+    opacity: 0.2;
+  }
+  75% { 
+    transform: scale(1.02) translate(8px, -3px);
+    opacity: 0.3;
+  }
+}
+
+@keyframes gentle-organic-wave-secondary {
+  0%, 100% { 
+    transform: scale(1) translate(0, 0);
+    opacity: 0.1;
+  }
+  33% { 
+    transform: scale(1.1) translate(-5px, 8px);
+    opacity: 0.2;
+  }
+  66% { 
+    transform: scale(0.9) translate(8px, -5px);
+    opacity: 0.15;
+  }
+}
+
+@keyframes gentle-floating-dots {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.25;
+  }
+  25% { 
+    transform: translateY(-8px) translateX(4px);
+    opacity: 0.4;
+  }
+  50% { 
+    transform: translateY(-12px) translateX(-6px);
+    opacity: 0.3;
+  }
+  75% { 
+    transform: translateY(-6px) translateX(10px);
+    opacity: 0.5;
+  }
+}
+
+/* Original organic wave animations (similar to bgvideo1.mp4) */
 @keyframes organic-wave {
   0%, 100% { 
     transform: scale(1) translate(0, 0);
@@ -311,6 +395,14 @@ body {
 
 .floating-particles {
   animation: floating-particles 6s ease-in-out infinite;
+}
+
+.gentle-floating-particles {
+  animation: gentle-floating-particles 15s ease-in-out infinite;
+}
+
+.gentle-circuit-pulse {
+  animation: gentle-circuit-pulse 10s ease-in-out infinite;
 }
 
 .particle-float {
